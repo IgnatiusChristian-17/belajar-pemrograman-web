@@ -1,0 +1,454 @@
+
+/* ========================================
+   1. CSS RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   2. BODY
+======================================== */
+
+body {
+    font-family: "Courier New", monospace;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #123b24,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050806,
+            #0b1510,
+            #050806
+        );
+
+    color: #d7e8dc;
+
+    line-height: 1.6;
+
+    min-height: 100vh;
+
+    padding: 30px;
+}
+
+
+/* ========================================
+   3. HEADER
+======================================== */
+
+header {
+    max-width: 1000px;
+
+    margin: 0 auto 35px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: rgba(10, 25, 17, 0.95);
+
+    border: 1px solid #294936;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(85, 255, 136, 0.05);
+
+    transition: 0.3s;
+}
+
+
+/* Hover Header */
+
+header:hover {
+    transform: translateY(-5px);
+
+    border-color: #55ff88;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(85, 255, 136, 0.1);
+}
+
+
+/* Judul Profil */
+
+header h1 {
+    color: #55ff88;
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 15px rgba(85, 255, 136, 0.2);
+}
+
+
+header h2 {
+    color: #b1d8bd;
+
+    font-size: 20px;
+
+    font-weight: normal;
+}
+
+
+/* ========================================
+   4. SECTION
+======================================== */
+
+section {
+    max-width: 1000px;
+
+    margin: 0 auto 35px;
+
+    padding: 30px;
+
+    background: rgba(10, 25, 17, 0.85);
+
+    border: 1px solid #294936;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3);
+
+    transition: 0.3s;
+}
+
+
+/* Hover Section */
+
+section:hover {
+    transform: translateY(-5px);
+
+    border-color: #55ff88;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ========================================
+   5. JUDUL SECTION
+======================================== */
+
+section h2 {
+    color: #55ff88;
+
+    font-size: 24px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #294936;
+
+    padding-bottom: 12px;
+}
+
+
+/* ========================================
+   6. PARAGRAF
+======================================== */
+
+section p {
+    color: #a6bcae;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Nama yang dicetak tebal */
+
+section p b {
+    color: #55ff88;
+}
+
+
+/* ========================================
+   7. TABLE
+======================================== */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+
+    background: rgba(5, 15, 9, 0.7);
+
+    border: 1px solid #294936;
+}
+
+
+/* Header tabel */
+
+th {
+    background: linear-gradient(
+        135deg,
+        #173f28,
+        #10291b
+    );
+
+    color: #55ff88;
+
+    padding: 15px;
+
+    text-align: left;
+
+    border: 1px solid #294936;
+
+    font-size: 15px;
+}
+
+
+/* Isi tabel */
+
+td {
+    color: #b1d8bd;
+
+    padding: 15px;
+
+    border: 1px solid #294936;
+
+    transition: 0.3s;
+}
+
+
+/* Hover baris tabel */
+
+tr:hover td {
+    background: #173421;
+
+    color: #ffffff;
+}
+
+
+/* ========================================
+   8. FOTO
+======================================== */
+
+section img {
+    display: block;
+
+    width: 300px;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 2px solid #294936;
+
+    margin: 20px auto 0;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5);
+
+    transition: 0.4s;
+}
+
+
+/* Hover Foto */
+
+section img:hover {
+    transform: scale(1.03);
+
+    border-color: #55ff88;
+
+    box-shadow:
+        0 0 25px rgba(85, 255, 136, 0.2);
+}
+
+
+/* ========================================
+   9. INSTAGRAM
+======================================== */
+
+body > p {
+    max-width: 1000px;
+
+    margin: 0 auto 35px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 25, 17, 0.85);
+
+    border: 1px solid #294936;
+
+    border-radius: 15px;
+
+    color: #a6bcae;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Link Instagram */
+
+a {
+    color: #55ff88;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+/* Hover Link */
+
+a:hover {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(85, 255, 136, 0.6);
+}
+
+
+/* ========================================
+   10. HR
+======================================== */
+
+hr {
+    border: none;
+
+    border-top: 1px solid #294936;
+
+    max-width: 1000px;
+
+    margin: 25px auto;
+}
+
+
+/* ========================================
+   11. RESPONSIVE DESIGN
+======================================== */
+
+
+/* TABLET */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    header {
+        padding: 25px 20px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header h2 {
+        font-size: 17px;
+    }
+
+    section {
+        padding: 25px 20px;
+    }
+
+    section h2 {
+        font-size: 22px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+    }
+
+}
+
+
+/* HANDPHONE */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    header {
+        padding: 22px 15px;
+
+        border-radius: 12px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    header h2 {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 20px 15px;
+
+        border-radius: 12px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    section p {
+        font-size: 14px;
+    }
+
+    /* Tabel dapat digeser ke samping
+       jika layar terlalu kecil */
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 10px;
+
+        font-size: 12px;
+    }
+
+    section img {
+        width: 100%;
+
+        max-width: 300px;
+
+        height: auto;
+
+        aspect-ratio: 3 / 4;
+    }
+
+    body > p {
+        padding: 20px 15px;
+
+        font-size: 13px;
+    }
+
+}
