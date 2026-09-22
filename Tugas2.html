@@ -2,64 +2,165 @@
 <html>
 
 <head>
-    <title>Ignatius Christian Octavianus Situmorang
+    <title>Ignatius Christian Octavianus Situmorang</title>
 
-    </title>
-        <link rel="stylesheet" href="Tugas2.css">
+    <link rel="stylesheet" href="Tugas2.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
 <body>
+
     <header>
         <h1>Profil Saya</h1>
         <h2>Ignatius Christian Octavianus Situmorang</h2>
         <hr>
     </header>
+
+
     <section>
         <h2>Tentang Saya</h2>
-        <p align="left"> Nama saya <b>Ignatius Christian Octavianus Situmorang.</b>
-        Saya adalah seorang mahasiswa yang sedang menempuh pendidikan di perguruan tinggi.
-     </p>
+
+        <p align="left">
+            Nama saya <b>Ignatius Christian Octavianus Situmorang.</b>
+            Saya adalah seorang mahasiswa yang sedang menempuh pendidikan
+            di perguruan tinggi.
+        </p>
     </section>
+
     <hr>
+
+
     <section>
         <h2>Data Diri</h2>
+
         <table border="1" cellpading="8" cellspacing="0">
             <tr>
                 <th>Data</th>
                 <th>Keterangan</th>
             </tr>
+
             <tr>
                 <td>Nama</td>
                 <td>Ignatius Christian Octavianus Situmorang</td>
             </tr>
+
             <tr>
                 <td>Status</td>
                 <td>Mahasiswa</td>
             </tr>
+
             <tr>
                 <td>Program Studi</td>
                 <td>Teknik Informatika</td>
             </tr>
+
             <tr>
                 <td>Universitas</td>
                 <td>Universitas Sanata Dharma</td>
             </tr>
         </table>
     </section>
+
     <hr>
-    
+
+
     <section>
         <h2>Foto Saya</h2>
-        <img src="WhatsApp Image 2026-09-08 at 14.21.05.jpeg" alt="Foto Saya" width="300" height="400">
+
+        <img src="WhatsApp Image 2026-09-08 at 14.21.05.jpeg"
+             alt="Foto Saya"
+             width="300"
+             height="400">
     </section>
+
+
     <p>
         <ul>
-            Instagram : <a href="https://www.instagram.com/christian_octvns17?stkn=OGpmcHBwY3Awa3U1" target="_blank">@christian_octvns17</a>
+            Instagram :
+            <a href="https://www.instagram.com/christian_octvns17?stkn=OGpmcHBwY3Awa3U5"
+               target="_blank">
+                @christian_octvns17
+            </a>
         </ul>
     </p>
+
+
+    <!-- ============================== -->
+    <!-- FORM PRAKTIKUM JAVASCRIPT -->
+    <!-- ============================== -->
+
+    <hr>
+
+    <section>
+        <h2>Form Praktikum JavaScript</h2>
+
+        <!-- Input teks -->
+        <label for="nama">Nama:</label>
+        <br>
+
+        <input type="text"
+               id="nama"
+               placeholder="Masukkan nama">
+
+        <br><br>
+
+
+        <!-- Input email -->
+        <label for="email">Email:</label>
+        <br>
+
+        <input type="email"
+               id="email"
+               placeholder="contoh@email.com">
+
+        <br><br>
+
+
+        <!-- Input number -->
+        <label for="jumlah">
+            Jumlah pilihan:
+        </label>
+        <br>
+
+        <input type="number"
+               id="jumlah"
+               min="1"
+               max="10"
+               value="3">
+
+        <br><br>
+
+
+        <!-- Tombol membuat pilihan -->
+        <button type="button" onclick="buatPilihan()">
+            Buat Pilihan
+        </button>
+
+
+        <!-- Tempat checkbox, radio button,
+             dan dropdown dibuat oleh JavaScript -->
+        <div id="pilihan"></div>
+
+
+        <br>
+
+
+        <!-- Tombol menampilkan hasil -->
+        <button type="button" onclick="tampilkanHasil()">
+            Tampilkan Hasil
+        </button>
+
+
+        <!-- Tempat hasil ditampilkan -->
+        <div id="output"></div>
+
+    </section>
+
+
+    <!-- Memanggil JavaScript -->
+    <script src="Tugas2.js"></script>
+
 </body>
 
 </html>
