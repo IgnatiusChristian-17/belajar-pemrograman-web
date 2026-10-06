@@ -35,6 +35,7 @@
         <h2>Data Diri</h2>
 
         <table border="1" cellpading="8" cellspacing="0">
+
             <tr>
                 <th>Data</th>
                 <th>Keterangan</th>
@@ -59,6 +60,7 @@
                 <td>Universitas</td>
                 <td>Universitas Sanata Dharma</td>
             </tr>
+
         </table>
     </section>
 
@@ -78,7 +80,8 @@
     <p>
         <ul>
             Instagram :
-            <a href="https://www.instagram.com/christian_octvns17?stkn=OGpmcHBwY3Awa3U5"
+
+            <a href="https://www.instagram.com/christian_octvns17?stkn=OGpmcHBwY3Awa3U9"
                target="_blank">
                 @christian_octvns17
             </a>
@@ -93,10 +96,12 @@
     <hr>
 
     <section>
-        <h2>Form Praktikum JavaScript</h2>
 
-        <!-- Input teks -->
-        <label for="nama">Nama:</label>
+        <h2>Evaluasi Mata Kuliah</h2>
+
+
+        <!-- Input nama -->
+        <label for="nama">Nama Mahasiswa:</label>
         <br>
 
         <input type="text"
@@ -117,43 +122,56 @@
         <br><br>
 
 
-        <!-- Input number -->
+        <!-- Input jumlah mata kuliah -->
         <label for="jumlah">
-            Jumlah pilihan:
+            Jumlah Mata Kuliah:
         </label>
+
         <br>
 
         <input type="number"
                id="jumlah"
                min="1"
-               max="10"
                value="3">
 
         <br><br>
 
 
-        <!-- Tombol membuat pilihan -->
-        <button type="button" onclick="buatPilihan()">
-            Buat Pilihan
+        <!-- Tombol menentukan jumlah -->
+        <button type="button"
+                onclick="buatInputMataKuliah()">
+
+            Tentukan Jumlah
+
         </button>
 
 
-        <!-- Tempat checkbox, radio button,
-             dan dropdown dibuat oleh JavaScript -->
-        <div id="pilihan"></div>
+        <!--
+            Tempat input mata kuliah
+            yang dibuat oleh JavaScript
+        -->
 
+        <div id="inputMataKuliah"></div>
 
         <br>
 
 
-        <!-- Tombol menampilkan hasil -->
-        <button type="button" onclick="tampilkanHasil()">
-            Tampilkan Hasil
+        <!-- Tombol membuat pilihan -->
+        <button type="button"
+                onclick="buatPilihanMataKuliah()">
+
+            Buat Pilihan Mata Kuliah
+
         </button>
 
 
-        <!-- Tempat hasil ditampilkan -->
-        <div id="output"></div>
+        <!--
+            Tempat checkbox,
+            input penilaian,
+            dan input semester
+        -->
+
+        <div id="pilihanMataKuliah"></div>
 
     </section>
 

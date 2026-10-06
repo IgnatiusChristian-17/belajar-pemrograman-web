@@ -1,187 +1,281 @@
-// Array untuk menyimpan pilihan checkbox
-let pilihanCheckbox = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Python",
-    "Java",
-    "C++",
-    "PHP",
-    "SQL",
-    "Git",
-    "React"
-];
+// Array untuk menyimpan pilihan mata kuliah
+let mataKuliah = [];
 
-// Array untuk menyimpan pilihan radio button
-let pilihanRadio = [
-    "Pemula",
-    "Menengah",
-    "Mahir"
-];
+// Array untuk menyimpan pilihan penilaian
+let pilihanPenilaian = [];
 
-// Array untuk pilihan dropdown
-let pilihanStudi = [
-    "Teknik Informatika",
-    "Sistem Informasi",
-    "Teknik Komputer",
-    "Teknologi Informasi"
-];
+// Array untuk menyimpan pilihan semester
+let pilihanSemester = [];
 
 
-// Fungsi untuk membuat checkbox, radio button, dan dropdown
-function buatPilihan() {
+// Membuat input mata kuliah sesuai jumlah yang dimasukkan
+function buatInputMataKuliah() {
 
-    // Mengambil jumlah pilihan dari input number
-    let jumlah = Number(document.getElementById("jumlah").value);
+    let jumlah = document.getElementById("jumlah").value;
+    let tempatInput = document.getElementById("inputMataKuliah");
 
-    // Error handling untuk jumlah pilihan
-    if (isNaN(jumlah) || jumlah < 1 || jumlah > 10) {
-        alert("Jumlah pilihan harus antara 1 sampai 10!");
+    // Mengosongkan input sebelumnya
+    tempatInput.innerHTML = "";
+
+    // Mengecek jumlah
+    if (jumlah < 1) {
+        alert("Jumlah mata kuliah harus minimal 1!");
         return;
     }
 
-    // Mengambil tempat untuk menampilkan pilihan
-    let pilihan = document.getElementById("pilihan");
+    // Loop membuat input sebanyak jumlah
+    for (let i = 1; i <= jumlah; i++) {
 
-    // Mengosongkan pilihan sebelumnya
-    pilihan.innerHTML = "";
-
-    // Membuat judul checkbox
-    let judulCheckbox = document.createElement("h3");
-    judulCheckbox.textContent = "Pilih Teknologi yang Dikuasai:";
-    pilihan.appendChild(judulCheckbox);
-
-    // Loop untuk membuat checkbox
-    for (let i = 0; i < jumlah; i++) {
-
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.name = "teknologi";
-        checkbox.value = pilihanCheckbox[i];
-        checkbox.id = "check" + i;
-
-        let label = document.createElement("label");
-        label.htmlFor = "check" + i;
-        label.textContent = pilihanCheckbox[i];
-
-        pilihan.appendChild(checkbox);
-        pilihan.appendChild(label);
-        pilihan.appendChild(document.createElement("br"));
+        tempatInput.innerHTML += `
+            <label>Mata Kuliah ${i}:</label><br>
+            <input type="text" id="matkul${i}" 
+                   placeholder="Masukkan nama mata kuliah">
+            <br><br>
+        `;
     }
-
-
-    // Membuat judul radio button
-    let judulRadio = document.createElement("h3");
-    judulRadio.textContent = "Tingkat Kemampuan:";
-    pilihan.appendChild(judulRadio);
-
-    // Loop untuk membuat radio button
-    for (let i = 0; i < pilihanRadio.length; i++) {
-
-        let radio = document.createElement("input");
-        radio.type = "radio";
-        radio.name = "tingkat";
-        radio.value = pilihanRadio[i];
-        radio.id = "radio" + i;
-
-        let label = document.createElement("label");
-        label.htmlFor = "radio" + i;
-        label.textContent = pilihanRadio[i];
-
-        pilihan.appendChild(radio);
-        pilihan.appendChild(label);
-        pilihan.appendChild(document.createElement("br"));
-    }
-
-
-    // Membuat judul dropdown
-    let judulDropdown = document.createElement("h3");
-    judulDropdown.textContent = "Pilih Program Studi:";
-    pilihan.appendChild(judulDropdown);
-
-    // Membuat dropdown
-    let dropdown = document.createElement("select");
-    dropdown.id = "studi";
-
-    // Loop untuk membuat pilihan dropdown
-    for (let i = 0; i < pilihanStudi.length; i++) {
-
-        let option = document.createElement("option");
-        option.value = pilihanStudi[i];
-        option.textContent = pilihanStudi[i];
-
-        dropdown.appendChild(option);
-    }
-
-    pilihan.appendChild(dropdown);
 }
 
 
-// Fungsi untuk menampilkan hasil
+// Membuat pilihan checkbox mata kuliah
+function buatPilihanMataKuliah() {
+
+    let jumlah = document.getElementById("jumlah").value;
+    let tempatPilihan = document.getElementById("pilihanMataKuliah");
+
+    // Mengosongkan array
+    mataKuliah = [];
+
+    // Mengambil data dari input
+    for (let i = 1; i <= jumlah; i++) {
+
+        let namaMatkul = document.getElementById("matkul" + i).value.trim();
+
+        if (namaMatkul === "") {
+            alert("Mata kuliah ke-" + i + " belum diisi!");
+            return;
+        }
+
+        // Menyimpan ke array
+        mataKuliah.push(namaMatkul);
+    }
+
+    // Membuat checkbox menggunakan loop
+    let hasil = "<h3>Pilih Mata Kuliah yang Ingin Dinilai:</h3>";
+
+    for (let i = 0; i < mataKuliah.length; i++) {
+
+        hasil += `
+            <input type="checkbox" name="mataKuliah" 
+                   value="${mataKuliah[i]}">
+            ${mataKuliah[i]}
+            <br>
+        `;
+    }
+
+    tempatPilihan.innerHTML = hasil;
+
+    // Membuat input untuk pilihan penilaian
+    tempatPilihan.innerHTML += `
+        <br>
+        <label>Masukkan pilihan penilaian:</label><br>
+        <input type="text" id="inputPenilaian"
+               placeholder="Contoh: Sangat Baik, Baik, Cukup, Kurang">
+        <br><br>
+
+        <label>Masukkan pilihan semester:</label><br>
+        <input type="text" id="inputSemester"
+               placeholder="Contoh: Semester 1, Semester 2, Semester 3">
+        <br><br>
+
+        <button type="button" onclick="buatPenilaian()">
+            Buat Penilaian dan Semester
+        </button>
+
+        <div id="hasilPenilaian"></div>
+    `;
+}
+
+
+// Membuat radio button dan dropdown
+function buatPenilaian() {
+
+    let inputPenilaian = document.getElementById("inputPenilaian").value;
+    let inputSemester = document.getElementById("inputSemester").value;
+
+    // Mengecek input penilaian
+    if (inputPenilaian.trim() === "") {
+        alert("Pilihan penilaian belum diisi!");
+        return;
+    }
+
+    // Mengecek input semester
+    if (inputSemester.trim() === "") {
+        alert("Pilihan semester belum diisi!");
+        return;
+    }
+
+    // Memasukkan pilihan ke dalam array
+    pilihanPenilaian = inputPenilaian.split(",").map(function(item) {
+        return item.trim();
+    });
+
+    pilihanSemester = inputSemester.split(",").map(function(item) {
+        return item.trim();
+    });
+
+
+    let hasil = `
+        <h3>Penilaian Mata Kuliah</h3>
+    `;
+
+    // Membuat radio button menggunakan loop
+    for (let i = 0; i < pilihanPenilaian.length; i++) {
+
+        hasil += `
+            <input type="radio" name="penilaian"
+                   value="${pilihanPenilaian[i]}">
+            ${pilihanPenilaian[i]}
+            <br>
+        `;
+    }
+
+
+    hasil += `
+        <br>
+        <label>Pilih Semester:</label><br>
+        <select id="semester">
+    `;
+
+    // Membuat dropdown menggunakan loop
+    for (let i = 0; i < pilihanSemester.length; i++) {
+
+        hasil += `
+            <option value="${pilihanSemester[i]}">
+                ${pilihanSemester[i]}
+            </option>
+        `;
+    }
+
+    hasil += `
+        </select>
+
+        <br><br>
+
+        <button type="button" onclick="tampilkanHasil()">
+            Tampilkan Hasil
+        </button>
+
+        <div id="output"></div>
+    `;
+
+    document.getElementById("hasilPenilaian").innerHTML = hasil;
+}
+
+
+// Menampilkan hasil menggunakan DOM
 function tampilkanHasil() {
 
-    // Mengambil data nama
-    let nama = document.getElementById("nama").value;
+    let nama = document.getElementById("nama").value.trim();
+    let email = document.getElementById("email").value.trim();
 
-    // Mengambil data email
-    let email = document.getElementById("email").value;
+    // Mengecek nama
+    if (nama === "") {
+        alert("Nama mahasiswa harus diisi!");
+        document.getElementById("nama").focus();
+        return;
+    }
 
-    // Pattern untuk mengecek email
+    // Mengecek email dengan pattern matching
     let polaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Mengecek email
     if (!polaEmail.test(email)) {
         alert("Email tidak valid! Silakan masukkan email yang benar.");
         document.getElementById("email").focus();
         return;
     }
 
-    // Mengecek nama
-    if (nama.trim() === "") {
-        alert("Nama harus diisi!");
-        document.getElementById("nama").focus();
+
+    // Mengambil checkbox yang dipilih
+    let checkbox = document.querySelectorAll(
+        'input[name="mataKuliah"]:checked'
+    );
+
+    let matkulDipilih = [];
+
+    for (let i = 0; i < checkbox.length; i++) {
+        matkulDipilih.push(checkbox[i].value);
+    }
+
+
+    // Mengecek apakah ada mata kuliah yang dipilih
+    if (matkulDipilih.length === 0) {
+        alert("Pilih mata kuliah terlebih dahulu!");
         return;
     }
 
-    // Array untuk menyimpan checkbox yang dipilih
-    let teknologiDipilih = [];
 
-    let checkboxTerpilih =
-        document.querySelectorAll('input[name="teknologi"]:checked');
+    // Mengambil radio button
+    let radio = document.querySelector(
+        'input[name="penilaian"]:checked'
+    );
 
-    // Memasukkan checkbox yang dipilih ke array
-    for (let i = 0; i < checkboxTerpilih.length; i++) {
-        teknologiDipilih.push(checkboxTerpilih[i].value);
+    if (radio === null) {
+        alert("Pilih penilaian terlebih dahulu!");
+        return;
     }
 
-    // Mengambil radio button yang dipilih
-    let radioTerpilih =
-        document.querySelector('input[name="tingkat"]:checked');
 
-    let tingkat = "";
+    // Mengambil semester
+    let semester = document.getElementById("semester").value;
 
-    if (radioTerpilih != null) {
-        tingkat = radioTerpilih.value;
-    } else {
-        tingkat = "Belum dipilih";
-    }
-
-    // Mengambil pilihan dropdown
-    let studi = document.getElementById("studi").value;
 
     // Mengambil tempat output
     let output = document.getElementById("output");
 
-    // Menampilkan hasil menggunakan DOM
-    output.innerHTML =
-        "<h3>Hasil Input</h3>" +
-        "<p><b>Nama:</b> " + nama + "</p>" +
-        "<p><b>Email:</b> " + email + "</p>" +
-        "<p><b>Teknologi:</b> " +
-        (teknologiDipilih.length > 0
-            ? teknologiDipilih.join(", ")
-            : "Belum dipilih") +
-        "</p>" +
-        "<p><b>Tingkat Kemampuan:</b> " + tingkat + "</p>" +
-        "<p><b>Program Studi:</b> " + studi + "</p>";
+
+    // Jika output masih kosong, tampilkan judul dan identitas
+    if (output.innerHTML === "") {
+
+        output.innerHTML = `
+            <h3>Hasil Evaluasi Mata Kuliah</h3>
+
+            <p>
+                <b>Nama:</b> ${nama}
+            </p>
+
+            <p>
+                <b>Email:</b> ${email}
+            </p>
+
+            <p>
+                <b>Mata Kuliah:</b>
+            </p>
+
+            <ul id="daftarHasil"></ul>
+        `;
+    }
+
+
+    // Menambahkan setiap mata kuliah ke hasil
+    let daftarHasil = document.getElementById("daftarHasil");
+
+    for (let i = 0; i < matkulDipilih.length; i++) {
+
+        daftarHasil.innerHTML += `
+            <li>
+                ${matkulDipilih[i]}
+                <br>
+                <b>Penilaian:</b> ${radio.value}
+                <br>
+                <b>Semester:</b> ${semester}
+            </li>
+            <br>
+        `;
+    }
+
+
+    // Menghapus centang setelah disimpan
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked = false;
+    }
 }
